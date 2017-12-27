@@ -7,6 +7,7 @@
     "name": "Gijs Kwakkel"
   },
   "dependencies": {
+    "daemon": "git+https://github.com/zipang/daemon.node.git#48d0977c26fb3a6a44ae99aae3471b9d5a761085",
     "debug": "^3.1.0",
     "node-persist": "^2.1.0",
     "node-zway": "git+https://github.com/kwakkel1000/node-zway.git"

@@ -106,6 +106,6 @@ class Domotica {
     }
 }
 
-//require('daemon')();
+require('daemon')();
 let domotica = new Domotica();
 
