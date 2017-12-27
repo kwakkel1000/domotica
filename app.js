@@ -106,6 +106,8 @@ class Domotica {
     }
 }
 
-require('daemon')();
+if (config.daemonize) {
+    require('daemon')();
+}
 let domotica = new Domotica();
 
