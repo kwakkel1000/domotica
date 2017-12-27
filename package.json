@@ -1,0 +1,14 @@
+{
+  "name": "domotica",
+  "version": "0.0.0",
+  "description": "domotica",
+  "main": "app.js",
+  "author": {
+    "name": "Gijs Kwakkel"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "node-persist": "^2.1.0",
+    "node-zway": "git+https://github.com/kwakkel1000/node-zway.git"
+  }
+}
