@@ -9,7 +9,7 @@ const NodeZway  = require('node-zway');
 class Zway {
     constructor(options) {
         this.deviceApi = new NodeZway.DeviceApi(options);
-        this.deviceApi.poll(1000);
+        this.deviceApi.poll(1500);
     }
 }
 

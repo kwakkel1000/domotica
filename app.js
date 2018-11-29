@@ -29,6 +29,10 @@ class Domotica {
         storage.getItem('variables')
         .then((value) => {
             this.variables = value;
+        // Save variables
+            setInterval(() => {
+                storage.setItem('variables', this.variables);
+            }, 60 * 60 * 1000);
         }, (reason) => {
             debug(reason);
         });
@@ -49,7 +53,7 @@ class Domotica {
             deviceConfig = value;
             this.devices = {};
             for (let device in deviceConfig.zway) {
-                this.devices[device] = new ZwayDevice(this, deviceConfig.zway[device].id, deviceConfig.zway[device].commandClasses);
+                this.devices[device] = new ZwayDevice(this, device, deviceConfig.zway[device].id, deviceConfig.zway[device].commandClasses);
             };
             this.initGroups();
         }, (reason) => {
@@ -71,7 +75,7 @@ class Domotica {
                 groupConfig[group].forEach((device) => {
                     groupArray.push(this.devices[device]);
                 });
-                this.groups[group] = new Group(groupArray);
+                this.groups[group] = new Group(group, groupArray);
             };
             this.events = new Events(this);
         }, (reason) => {

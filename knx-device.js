@@ -2,14 +2,14 @@
     node: true
 */
 'use strict';
-const debug     = require('debug')('domotica:zway-device');
+const debug     = require('debug')('domotica:knx-device');
 
 const Device    = require('./device');
 
-class ZwayDevice extends Device {
-    constructor(domotica, name, address, commandClasses) {
+class KnxDevice extends Device {
+    constructor(domotica, name, address, dpt) {
         super(domotica, name, address);
-        this.device = domotica.zway.deviceApi.getDevice(address, commandClasses);
+        this.device = new domotica.knx.knx.Datapoint({ga: address, dpt: dpt}, domotica.knx.connection);
     }
     
     command(action, options) {
@@ -21,4 +21,4 @@ class ZwayDevice extends Device {
     }
 }
 
-module.exports = ZwayDevice;
+module.exports = KnxDevice;

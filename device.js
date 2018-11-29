@@ -3,19 +3,29 @@
 */
 'use strict';
 const debug     = require('debug')('domotica:device');
+const History   = require('./history');
 
 class Device {
-    constructor(domotica, address) {
+    constructor(domotica, name, address) {
+        debug(name + ' address: ' + address);
         this.domotica = domotica;
+        this.name = name;
         this.address = address;
+        this.history = {};
+        for (type in this.history) {
+            
+        }
+        //new History(name, []);
     }
     
+    
+    
     command(action, options) {
-        debug('command: ' + action + ' options: ' + options);
+        debug(this.name + ' command: ' + action + ' options: ' + options);
     }
     
     on(eventId, cb) {
-        debug('command: ' + action + ' options: ' + options);
+        debug(this.name + ' command: ' + action + ' options: ' + options);
     }
 }
 
